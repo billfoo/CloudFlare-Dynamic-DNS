@@ -75,7 +75,7 @@ echo 'Found Record Type: ' . $record_type . '<br />';
 
 curl_setopt($ch, CURLOPT_URL, "https://api.cloudflare.com/client/v4/zones/$zone_id/dns_records/$domain_id");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, "{\"id\":\"$domain_id\",\"type\":\"$record_type\",\"name\":\"{$_GET['domain']}\",\"content\":\"{$_GET['ip']}\",\"data\":{}}");
+curl_setopt($ch, CURLOPT_POSTFIELDS, "{\"id\":\"$domain_id\",\"type\":\"$record_type\",\"name\":\"{$_GET['domain']}\",\"content\":\"{$_GET['ip']}\",\"proxied\":true,\"data\":{}}");
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
 
 $headers = array();
